@@ -16,15 +16,19 @@ namespace Assignment5
         }
 
         
+
         public String MyFunctionA(string input)
         {
-            
+           
             string[] words = input.Split(' ');
             int wordarrayLength = words.Length;
-            
+            String longestword = words[0];
             int[] wordsLength = new int[words.Length];
+            for (int s = 0; s < words.Length; s++)
+            {
+                wordsLength[s] = words[s].Length;
+            }
            
-            
 
             string currentWord = words[0];
             string nextWord;
@@ -34,7 +38,13 @@ namespace Assignment5
                 currentWord = words[y];
 
                 nextWord = words[y + 1];
-                
+                if (words[y + 1].Equals(words[y]))
+                {
+                    longestword = words[y + 1];
+                }
+
+            }
+            return longestword;
 
         }
 
